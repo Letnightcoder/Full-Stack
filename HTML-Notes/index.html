@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+</head>
+<body>
+    <!-- Content goes here -->
+
+     <!-- Working with Text Elements -->
+
+<h1>Main Heading</h1> <!-- h1 to h6 -->
+<p>This is a paragraph of text.</p>
+<p>New line here <br> after the break.</p>
+<a href="https://example.com" target="_blank">Visit Example</a>
+<span style="color: blue;">This text is blue.</span>
+<pre>
+  Preformatted text
+  Line spacing preserved.
+</pre>
+<code>console.log('Hello, World!');</code>
+
+
+<p>Regular paragraph text</p>
+<strong>Bold/Important text</strong>
+<em>Italic/Emphasized text</em>
+<mark>Highlighted text</mark>
+<small>Small text</small>
+<del>Deleted text</del>
+<ins>Inserted text</ins>
+<sub>Subscript</sub>
+<sup>Superscript</sup>
+
+<br> <!-- Line break -->
+<hr> <!-- Horizontal rule/divider -->
+
+
+<h2>Ordered List:</h2>
+<ol>
+  <li>First item</li>
+  <li>Second item</li>
+</ol>
+
+<h2>Unordered List:</h2>
+<ul>
+  <li>First item</li>
+  <li>Second item</li>
+</ul>
+
+
+<ul>
+  <li>Item 1
+    <ul>
+      <li>Nested Item 1.1</li>
+      <li>Nested Item 1.2</li>
+    </ul>
+  </li>
+  <li>Item 2</li>
+</ul>
+
+
+<dl>
+    <dt>Term 1</dt>
+    <dd>Description of term 1</dd>
+    <dt>Term 2</dt>
+    <dd>Description of term 2</dd>
+</dl>
+
+
+// Basic Links
+<a href="https://example.com">External link</a>
+<a href="page.html">Internal link</a>
+<a href="#section">Link to section on same page</a>
+<a href="mailto:email@example.com">Email link</a>
+<a href="tel:+1234567890">Phone link</a>
+
+// Link Attributes
+<a href="<https://example.com>" target="_blank" rel="noopener">Opens in new tab</a>
+<a href="document.pdf" download>Download link</a>
+<a href="#" title="Tooltip text">Link with tooltip</a>
+
+
+<img src="image.jpg" alt="A beautiful image" width="300" height="200">
+<video controls width="320">
+  <source src="video.mp4" type="video/mp4">
+</video>
+<audio controls>
+  <source src="audio.mp3" type="audio/mpeg">
+</audio>
+
+
+<a href="https://example.com" target="_blank">Open Example in a new tab</a>
+<img src="image.jpg" alt="An image" width="400" height="300">
+
+
+<a href="#section1">Go to Section 1</a>
+<a href="page2.html">Go to another page</a>
+
+<h2 id="section1">Section 1</h2>
+<p>This is Section 1.</p>
+
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Header 1</th>
+      <th>Header 2</th>
+      <th>Header 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Data 1</td>
+      <td>Data 2</td>
+      <td>Data 3</td>
+    </tr>
+    <tr>
+      <td>Data 4</td>
+      <td>Data 5</td>
+      <td>Data 6</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">Footer content</td>
+    </tr>
+  </tfoot>
+</table>
+
+
+<table border="1" cellpadding="10" cellspacing="0">
+<td colspan="2">Spans 2 columns</td>
+<td rowspan="2">Spans 2 rows</td>
+</table>
+
+
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td colspan="2">Merged Column</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Merged Row</td>
+    <td>Row 1</td>
+  </tr>
+  <tr>
+    <td>Row 2</td>
+  </tr>
+</table>
+
+
+<form action="/submit" method="POST">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="username" placeholder="Enter your name" required>
+
+  <label for="message">Message:</label>
+  <textarea id="message" name="usermessage" rows="4" cols="50"></textarea>
+
+  <label for="color">Favorite Color:</label>
+  <input type="color" id="color" name="usercolor">
+
+  <label for="country">Country:</label>
+  <select id="country" name="usercountry">
+    <option value="usa">USA</option>
+    <option value="uk">UK</option>
+    <option value="india">India</option>
+  </select>
+
+  <button type="submit">Submit</button>
+</form>
+
+
+<form>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$">
+
+  <label for="gender">Gender:</label>
+  <input type="radio" name="gender" value="male"> Male
+  <input type="radio" name="gender" value="female"> Female
+
+  <label for="subscribe">Subscribe:</label>
+  <input type="checkbox" id="subscribe" name="subscribe" checked>
+
+  <label for="birthday">Birthday:</label>
+  <input type="date" id="birthday" name="birthday">
+
+  <button type="submit">Submit</button>
+</form>
+
+
+<form action="/submit-data" method="POST" enctype="multipart/form-data" target="_blank">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+  <label for="profile-pic">Profile Picture:</label>
+  <input type="file" id="profile-pic" name="profilepic">
+
+  <label for="range">Set Range:</label>
+  <input type="range" id="range" name="range" min="1" max="10">
+
+  <button type="submit">Upload</button>
+</form>
+
+
+<audio src="audio.mp3" controls></audio>
+<video src="video.mp4" width="400" controls></video>
+
+
+<video width="600" controls>
+  <source src="video.mp4" type="video/mp4">
+  <source src="video.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
+
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
+
+
+<header>
+  <h1>Welcome to My Blog</h1>
+</header>
+<main>
+  <article>
+    <h2>Article Title</h2>
+    <p>This is the content of the article.</p>
+  </article>
+  <aside>
+    <p>Related links or ads go here.</p>
+  </aside>
+</main>
+<footer>
+  <p>Copyright © 2025</p>
+  <p>Copyright &copy; 2025</p>
+<p>Symbol: &#9827;</p>
+<p>Arrow: &larr;</p>
+</footer>
+
+
+</body>
+</html>
