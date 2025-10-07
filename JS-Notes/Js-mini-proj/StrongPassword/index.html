@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Strength Meter</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f0f2f5;
+      }
+
+      .container {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: #333;
+      }
+
+      .input-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .input-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #555;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 0.8rem;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+      }
+
+      .input-group input:focus {
+        outline: none;
+        border-color: #4caf50;
+      }
+
+      .strength-meter {
+        height: 10px;
+        background: #ddd;
+        border-radius: 5px;
+        margin: 1rem 0;
+        overflow: hidden;
+      }
+
+      .strength-meter div {
+        height: 100%;
+        width: 0;
+        transition: all 0.3s;
+      }
+
+      .requirements {
+        list-style: none;
+      }
+
+      .requirements li {
+        margin: 0.5rem 0;
+        color: #666;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .requirements li::before {
+        content: "✕";
+        color: #ff4444;
+      }
+
+      .requirements li.valid::before {
+        content: "✓";
+        color: #4caf50;
+      }
+
+      .strength-text {
+        text-align: center;
+        margin-top: 0.5rem;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Password Strength Checker</h2>
+      <div class="input-group">
+        <label for="password">Enter Password</label>
+        <input type="password" id="password" placeholder="Type your password" />
+      </div>
+      <div class="strength-meter">
+        <div id="strength-bar"></div>
+      </div>
+      <div class="strength-text" id="strength-text">Strength: No Password</div>
+      <ul class="requirements">
+        <li id="length">At least 8 characters long</li>
+        <li id="uppercase">Contains uppercase letter</li>
+        <li id="lowercase">Contains lowercase letter</li>
+        <li id="number">Contains number</li>
+        <li id="special">Contains special character</li>
+      </ul>
+    </div>
+
+    <script>
+      const password = document.getElementById("password");
+      const strengthBar = document.getElementById("strength-bar");
+      const strengthText = document.getElementById("strength-text");
+
+      // Get all requirement elements
+      const requirements = {
+        length: document.getElementById("length"),
+        uppercase: document.getElementById("uppercase"),
+        lowercase: document.getElementById("lowercase"),
+        number: document.getElementById("number"),
+        special: document.getElementById("special"),
+      };
+
+      // Password validation criteria
+      const validatePassword = (password) => {
+        const criteria = {
+          length: password.length >= 8,
+          uppercase: /[A-Z]/.test(password),
+          lowercase: /[a-z]/.test(password),
+          number: /[0-9]/.test(password),
+          special: /[!@#$%^&*(),.?":{}|<>]/.test(password),
+        };
+
+        // Update requirement status
+        for (let requirement in criteria) {
+          if (criteria[requirement]) {
+            requirements[requirement].classList.add("valid");
+          } else {
+            requirements[requirement].classList.remove("valid");
+          }
+        }
+
+        return criteria;
+      };
+
+      // Calculate password strength
+      const calculateStrength = (criteria) => {
+        const validCriteria = Object.values(criteria).filter(Boolean).length;
+        const strength = (validCriteria / 5) * 100;
+
+        // Update strength bar
+        strengthBar.style.width = `${strength}%`;
+
+        // Set color based on strength
+        if (strength <= 20) {
+          strengthBar.style.backgroundColor = "#ff4444";
+          strengthText.textContent = "Strength: Very Weak";
+        } else if (strength <= 40) {
+          strengthBar.style.backgroundColor = "#ffbb33";
+          strengthText.textContent = "Strength: Weak";
+        } else if (strength <= 60) {
+          strengthBar.style.backgroundColor = "#ffeb3b";
+          strengthText.textContent = "Strength: Medium";
+        } else if (strength <= 80) {
+          strengthBar.style.backgroundColor = "#00C851";
+          strengthText.textContent = "Strength: Strong";
+        } else {
+          strengthBar.style.backgroundColor = "#007E33";
+          strengthText.textContent = "Strength: Very Strong";
+        }
+      };
+
+      // Listen for password input
+      password.addEventListener("input", (e) => {
+        const value = e.target.value;
+        const criteria = validatePassword(value);
+        calculateStrength(criteria);
+
+        if (!value) {
+          strengthBar.style.width = "0";
+          strengthText.textContent = "Strength: No Password";
+        }
+      });
+    </script>
+  </body>
+</html>
