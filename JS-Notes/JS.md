@@ -75,6 +75,29 @@ let person = {
 };
 ```
 
+## Strings and their methods in JavaScript
+
+- `length` : Returns the number of characters in a string.
+- `toUpperCase()` : Converts the string to uppercase.
+- `toLowerCase()` : Converts the string to lowercase.
+- `indexOf()` : Finds the position of the first occurrence of a specified value.
+- `lastIndexOf()` : Finds the position of the last occurrence of a specified value.
+- `slice()`: Extracts a part of a string and returns it as a new string. It takes a start index and an optional end index (not inclusive).
+- `substring()` : Similar to **slice()**, but it does not accept negative indices.
+- `replace()` : Replaces the first occurrence of a specified value with another value.
+- `replaceAll()` : Replaces all occurrences of a specified value.
+- `trim()` : Removes whitespace from both ends of a string.
+- `trimStart()` : Removes whitespace from the start of a string. 
+- `trimEnd()` : Removes whitespace from both the end of a string.
+- `split()` : Splits a string into an array of substrings based on a specified separator.
+- `charAt()` : Returns the character at a specified index.
+- `charCodeAt()` : Returns the Unicode of the character at a specified index.
+- `includes()` : Checks if a string contains a specified value.
+- `startsWith()` : Checks if a string starts with a specified value.
+- `endsWith()` : Checks if a string ends with a specified value.
+
+<hr/>
+
 # Operators
 
 ```jsx
@@ -118,6 +141,14 @@ let value = object?.property?.nestedProp; // Avoids errors if a property doesn't
 ```
 
 # Control Flow
+
+
+1. **Choosing the Right Loop**
+- Use `for` when you know the number of iterations
+- Use `while` when the number of iterations is unknown
+- Use `for...of` for arrays and other iterables
+- Use `for...in` for object properties
+- Use array methods (`map`, `filter`, etc.) when transforming data.
 
 ```jsx
 // If statements
@@ -241,6 +272,33 @@ string`;
 ```
 
 # Arrays and Array Methods
+
+1. **Adding and Removing Elements**:
+
+- `push()`: Adds an item to the end of an array.
+- `pop()`: Removes the last item from an array.
+- `unshift()`: Adds elements to the beginning of an array.
+- `shift()`: Removes the first element from an array.
+- `length`: Returns the number of elements in the array.
+
+2. **Array Methods: `splice()` and `slice()` :**
+
+- **`splice(start, deleteCount, items...)`**: Adds/removes items to/from an array.
+- **`slice(start, end)`**: Returns a shallow copy of a portion of an array into a new array.
+
+3. **Looping Through Arrays with `forEach()` :**
+
+- **forEach()** method executes a provided function for each element in the array.
+
+4. **What is the difference between `push()` and `unshift()`?**
+
+- `push()` adds an element to the **end** of an array.
+- `unshift()` adds an element to the **beginning** of an array.
+
+5. **What’s the difference between `splice()` and `slice()`?**
+
+- `splice()` **modifies** the original array by adding/removing elements.
+- `slice()` **does not modify** the original array; it creates a new array containing the selected portion.
 
 ```jsx
 // Creating arrays
@@ -545,134 +603,100 @@ fetch("https://jsonplaceholder.typicode.com/posts")
 
 ---
 
-# **Fetching Elements in the DOM**
+# Fetching Elements in the DOM
 
 1.  **`document.getElementById()`**:
     Fetches a single element by its `id`.
     ```jsx
     const element = document.getElementById("myElement");
 
-        ```
-
 2.  **`document.getElementsByTagName()`**:
     Fetches all elements by a specific tag name.
     ```jsx
     const paragraphs = document.getElementsByTagName("p");
-
-        ```
 
 3.  **`document.getElementsByClassName()`**:
     Fetches all elements by a specific class name.
     ```jsx
     const items = document.getElementsByClassName("item");
 
-        ```
-
 4.  **`document.querySelector()`**:
     Fetches the first matching element for a CSS selector.
     ```jsx
     const firstItem = document.querySelector(".item");
-
-        ```
 
 5.  **`document.querySelectorAll()`**:
     Fetches all matching elements for a CSS selector.
     ```jsx
     const allItems = document.querySelectorAll(".item");
 
-        ```
-
 ---
 
-# **DOM Tree Traversal**
+# DOM Tree Traversal
 
 1.  **`parentNode`**:
     Access the parent node of an element.
     ```jsx
     console.log(element.parentNode);
 
-        ```
-
 2.  **`childNodes`**:
     Access all child nodes (including text and comment nodes).
     ```jsx
     console.log(element.childNodes);
-
-        ```
 
 3.  **`firstChild`**:
     Access the first child node.
     ```jsx
     console.log(element.firstChild);
 
-        ```
-
 4.  **`nextSibling`**:
     Access the next sibling node.
     ```jsx
     console.log(element.nextSibling);
 
-        ```
-
-# **Manipulating DOM Elements**
+# Manipulating DOM Elements
 
 1.  **`innerHTML`**:
     Set or get the HTML content inside an element.
     ```jsx
     element.innerHTML = "<strong>Hello World</strong>";
 
-        ```
-
 2.  **`textContent`**:
     Set or get only the text content inside an element.
     ```jsx
     element.textContent = "Hello World";
-
-        ```
 
 3.  **`setAttribute()`**:
     Set an attribute for an element.
     ```jsx
     element.setAttribute("class", "newClass");
 
-        ```
-
 4.  **`getAttribute()`**:
     Get the value of an attribute.
     ```jsx
     const value = element.getAttribute("id");
-
-        ```
 
 5.  **`style` Property**:
     Modify inline styles of an element.
     ```jsx
     element.style.color = "red";
 
-        ```
-
 6.  **`classList`**:
     Manipulate classes on an element. - **Add a class**:
     ```jsx
     element.classList.add("newClass");
-
-            ```
 
         - **Remove a class**:
 
             ```jsx
             element.classList.remove("oldClass");
 
-            ```
-
         - **Toggle a class**:
 
             ```jsx
             element.classList.toggle("active");
 
-            ```
-
-# **Create and Remove DOM Elements**
+# Create and Remove DOM Elements
 
 1.  **`createElement()`**:
     Create a new HTML element.
@@ -680,32 +704,24 @@ fetch("https://jsonplaceholder.typicode.com/posts")
     const newElement = document.createElement("div");
     newElement.textContent = "Hello!";
 
-        ```
-
 2.  **`appendChild()`**:
     Add a child element to a parent.
     ```jsx
     document.body.appendChild(newElement);
-
-        ```
 
 3.  **`insertBefore()`**:
     Insert a child element before another child element.
     ```jsx
     parentElement.insertBefore(newElement, referenceElement);
 
-        ```
-
 4.  **`removeChild()`**:
     Remove a child element from its parent.
     ```jsx
     parentElement.removeChild(childElement);
 
-        ```
-
 ---
 
-# **Event Handling in JavaScript**
+# Event Handling in JavaScript
 
 Event handling allows developers to create interactive and dynamic web pages by responding to user actions like clicks, key presses, or form submissions.
 
@@ -810,7 +826,6 @@ Event handling allows developers to create interactive and dynamic web pages by 
         const inputData = document.querySelector("#myInput").value;
         console.log(inputData);
       });
-      ```
 
   2.  **Validating Forms**:
       Use JavaScript to check user input.
@@ -823,16 +838,12 @@ Event handling allows developers to create interactive and dynamic web pages by 
       }
       });
 
-          ```
-
   3.  **`preventDefault()`**:
       Prevents the default browser action (e.g., form submission or link navigation).
       ```jsx
       form.addEventListener("submit", (event) => {
       event.preventDefault(); // Prevents page reload
       });
-
-          ```
 
   4.  **`onsubmit` and `onchange`**:
 
@@ -844,7 +855,6 @@ Event handling allows developers to create interactive and dynamic web pages by 
         event.preventDefault();
         console.log("Form submitted");
       };
-      ```
 
 ---
 
@@ -887,16 +897,12 @@ Event handling allows developers to create interactive and dynamic web pages by 
       console.log("DOM fully loaded");
       });
 
-          ```
-
   2.  **`load`**:
       Triggered when the entire page (including assets like images) is loaded.
       ```jsx
       window.addEventListener("load", () => {
       console.log("Page fully loaded");
       });
-
-          ```
 
   3.  **`resize`**:
       Triggered when the browser window is resized.
@@ -905,8 +911,6 @@ Event handling allows developers to create interactive and dynamic web pages by 
       console.log("Window resized");
       });
 
-          ```
-
   4.  **`scroll`**:
       Triggered when the user scrolls the page.
       ```jsx
@@ -914,11 +918,9 @@ Event handling allows developers to create interactive and dynamic web pages by 
       console.log("User scrolled the page");
       });
 
-          ```
-
 ---
 
-# **Using Browser Functionalities in JavaScript**
+# Using Browser Functionalities in JavaScript
 
 JavaScript allows interaction with the browser's various functionalities through the **Browser Object Model (BOM)**, which provides objects for working with the browser window, navigation history, location, and more.
 
@@ -1057,7 +1059,7 @@ JavaScript allows interaction with the browser's various functionalities through
     }
     ```
 
-# **Object-Oriented Programming (OOP) Concepts in JavaScript**
+# Object-Oriented Programming (OOP) Concepts in JavaScript
 
 Object-Oriented Programming (OOP) in JavaScript is based on the use of **objects**, which are collections of properties and methods. Modern JavaScript also supports **classes**, making it easier to create and manage objects.
 
@@ -1255,7 +1257,7 @@ OOP principles include:
   dog.bark(); // Woof!
   ```
 
-### **Getter and Setter**:
+### Getter and Setter:
 
 - Allow controlled access to object properties.
   ```jsx
@@ -1285,7 +1287,7 @@ OOP principles include:
 
 ---
 
-# **Asynchronous Programming in JavaScript**
+# Asynchronous Programming in JavaScript
 
 Asynchronous programming allows JavaScript to handle tasks like fetching data from a server, timers, and user input without blocking the main thread. This enables efficient execution of code while waiting for external resources or events.
 
@@ -1495,7 +1497,7 @@ Web APIs provide additional functionality beyond JavaScript’s core language.
 
 ---
 
-# **Error Handling in JavaScript**
+# Error Handling in JavaScript
 
 Error handling ensures that code can gracefully handle unexpected issues, preventing crashes and improving user experience.
 
@@ -1678,7 +1680,7 @@ try {
 
 ---
 
-# **Throttling and Debouncing in JavaScript**
+# Throttling and Debouncing in JavaScript
 
 **Throttling** and **Debouncing** are techniques to control the rate of execution of a function, often used to optimize performance when handling events like scrolling, resizing, or typing.
 
@@ -1745,6 +1747,8 @@ Debouncing ensures that a function is executed only after a specified delay has 
 
 ---
 
+# Comparison of Throttling and Debouncing
+
 ### **Comparison of Throttling and Debouncing**
 
 | Feature   | Throttling                     | Debouncing                         |
@@ -1755,7 +1759,6 @@ Debouncing ensures that a function is executed only after a specified delay has 
 
 ---
 
-# **Comparison of Throttling and Debouncing**
 
 **JSON (JavaScript Object Notation)** is a lightweight data-interchange format used for data exchange between systems.
 
